@@ -1,2 +1,6 @@
 ﻿  discreteLab4.cpp
+C:\Users\user\source\repos\discreteLab4\discreteLab4\discreteLab4.cpp(15,14): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\user\source\repos\discreteLab4\discreteLab4\discreteLab4.cpp(23,14): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\user\source\repos\discreteLab4\discreteLab4\discreteLab4.cpp(32,14): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\user\source\repos\discreteLab4\discreteLab4\discreteLab4.cpp(28,1): warning C4715: maxIndexJ: значение возвращается не при всех путях выполнения
   discreteLab4.vcxproj -> C:\Users\user\source\repos\discreteLab4\x64\Debug\discreteLab4.exe
