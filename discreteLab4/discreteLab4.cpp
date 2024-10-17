@@ -10,6 +10,8 @@ void print_set(vector<int> lst) {
 }
 
 
+
+
 // функция для нахождения наибольший индекса i, такого что a[i] < a[i + 1] (вспомогательная)
 int maxIndexI(const vector<int> lst) {
     int size = lst.size();
@@ -36,6 +38,27 @@ void reverse(int index_i, vector<int> &lst) {
     lst = result_lst;
 }
 
+// Функция для определения знака перестановки
+int sign_of_permutation(const vector<int>& P) {
+    int n = P.size();
+    vector<bool> isNew(n, true); // Массив для отслеживания новых элементов
+    int s = 1; // Начальный знак перестановки (1 - чётная, -1 - нечётная)
+
+    // Проходим по каждому элементу
+    for (int i = 0; i < n; i++) {
+        if (isNew[i]) { // Если элемент не был использован в предыдущих циклах
+            int j = P[i] - 1; // Запускаем цикл, начиная с элемента P[i]
+            isNew[i] = false;  // Помечаем элемент как обработанный
+            while (j != i) {
+                isNew[j] = false; // Помечаем следующий элемент как обработанный
+                s = -s;           // Инвертируем знак
+                j = P[j] - 1;     // Переходим к следующему элементу цикла
+            }
+        }
+    }
+    return s; // Возвращаем знак перестановки
+}
+
 // главная функция для нахождения все перестановок
 void permutation(multiset<int> list) {
     vector<int> copy_list;
@@ -46,11 +69,15 @@ void permutation(multiset<int> list) {
     while (index_j != -1) {
         swap(copy_list[index_i], copy_list[index_j]);
         reverse(index_i, copy_list);
+        cout << "Permutation: ";
         print_set(copy_list);
+        cout << "Sign: " << sign_of_permutation(copy_list) << endl;
         index_i = maxIndexI(copy_list);
         index_j = maxIndexJ(copy_list, index_i);
     }
 }
+
+
 
 int main()
 {
